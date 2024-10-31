@@ -1,0 +1,236 @@
+exemplos:
+  - titulo: Anotações da Reunião de Alinhamento - Processo de Vendas de Marmita
+    texto: |
+      Anotações da Reunião de Alinhamento - Processo de Vendas de Marmita
+
+      Data: 09/10/2024
+      Participantes: Equipe de Vendas, Cozinha, Logística, TI
+
+      Etapa 1: Cadastro do Cliente      
+      Info a coletar: nome, CPF/CNPJ (pra empresa tbm), telefone, endereço de 
+      entrega (CEP, rua, número, complemento, bairro), e-mail.
+      Validações:
+      Ver se CPF/CNPJ já existe no sistema.
+      Endereço tem que ser válido (e dentro da área de entrega).
+      Depois do cadastro, mandar e-mail de confirmação.
+      Automação:
+      Sistema sugere endereço a partir do CEP.
+      E-mail automático pro cliente depois de se cadastrar.
+      Roteamento:
+      Cadastro OK → vai pro próximo passo (pedido).
+      Cadastro não OK (ex: endereço fora da área) → atendente avisa o cliente.
+      
+      Etapa 2: Cadastro do Pedido
+      Info a coletar: tipo de marmita (fitness, vegetariana, tradicional), tamanho (P/M/G), data/hora de 
+      entrega, quantidade, observações (ex: restrições alimentares).
+      Validações:
+      Checar disponibilidade de ingredientes pro que pediram.
+      Ver se dá pra produzir na data e quantidade que pediram.
+      Checar se pagamento foi feito (online, cartão).
+      Automação:
+      Integra com sistema de pagamento pra confirmar.
+      Confirmação automática pro cliente com os detalhes da entrega.
+      Roteamento:
+      Pedido OK + pagamento OK → vai pra cozinha.
+      Problema com pagamento ou falta de ingredientes → avisa o cliente pra ajustar.
+      
+      Etapa 3: Fabricação da Marmita
+      Cozinha consulta pedidos confirmados no sistema.
+      Preparo conforme tipo e restrições alimentares.
+      Conferir qualidade dos ingredientes antes de usar.
+      Embalar de forma correta pra manter segurança alimentar.
+      Validações:
+      Conferir se todas as marmitas estão como o cliente pediu.
+      Etiquetar tudo certinho com nome do cliente, tipo, data de preparo.
+      Automação:
+      Sistema gera lista diária de produção.
+      Registro automático das marmitas prontas pro próximo passo (entrega).
+      Roteamento:
+      Marmitas OK → vai pra entrega.
+      Ajuste necessário → notificar cozinha.
+      
+      Etapa 4: Entrega
+      Entregador verifica a lista do dia e endereços.
+      Organizar as marmitas por rota.
+      Registrar no sistema quando entregar (hora, assinatura do cliente).
+      Validações:
+      Ver se todas as marmitas estão na rota certa.
+      Confirmar com o cliente e pegar assinatura/foto.
+      Status: entregue, tentativa de entrega, não entregue.
+      Automação:
+      Roteirização automática (otimizar rotas).
+      Notificar cliente por SMS ou app (status da entrega).
+      Roteamento:
+      Entrega OK → processo encerrado.
+      Entrega falhou (cliente ausente, endereço errado) → notificar atendimento.
+      
+      Obs.:
+
+      Verificar com a TI se a integração com o sistema de pagamento está estável.
+      Cozinha pediu atenção na descrição dos pedidos com restrição alimentar.
+      Logística sugeriu revisar a área de entrega, aumentar cobertura.
+
+  - titulo: Transcrição da Reunião de Alinhamento - Processo de Vendas de Marmita
+    texto: |
+      Data: 09/10/2024
+      Participantes: Ana (Gestora de Vendas), Lucas (TI), Carla (Cozinha), João (Logística)
+
+      Ana: Bom, pessoal, a gente precisa garantir que o processo de venda das marmitas esteja 
+      redondinho. Vamos começar pelo cadastro do cliente. A ideia é coletar todas as informações 
+      básicas, como nome, CPF ou CNPJ se for uma empresa, telefone, endereço completo e e-mail. 
+      Tudo isso tem que estar certinho no sistema.
+
+      Lucas (TI): Certo, então precisamos validar se o CPF ou CNPJ já está no nosso sistema pra 
+      evitar duplicidade. Além disso, a questão do endereço: precisamos de um jeito de verificar 
+      automaticamente se ele é válido e se está dentro da nossa área de entrega, né?
+
+      Ana: Isso, exatamente. E depois do cadastro, a gente envia um e-mail de confirmação pro 
+      cliente, pra ele saber que tá tudo certo.
+
+      Lucas (TI): Tá, isso dá pra automatizar. Posso configurar pro sistema sugerir o endereço 
+      pelo CEP e disparar o e-mail automaticamente assim que o cadastro for aprovado.
+
+      Carla (Cozinha): Só pra confirmar, se o endereço não for atendido, a gente precisa que 
+      alguém da equipe avise o cliente que a gente não faz entrega naquela região, certo?
+
+      Ana: Sim, se der qualquer problema no cadastro, a gente precisa avisar.
+
+      Ana: Agora, vamos pro cadastro do pedido. Aqui, o cliente escolhe o tipo de marmita, 
+      se é fitness, vegetariana ou tradicional, e também o tamanho, né? Pequena, média ou 
+      grande. Eles também vão poder selecionar a data e hora que querem receber, além de 
+      indicar quantas marmitas querem. E se tiver alguma restrição alimentar ou pedido 
+      especial, tem que ter espaço pra isso.
+
+      Lucas (TI): Sobre a validação, Carla, precisamos que a cozinha confirme se tem os 
+      ingredientes pra cada tipo de marmita antes de aprovar o pedido. E Ana, precisamos 
+      checar se a nossa capacidade de produção aguenta o volume de pedidos pra aquela data 
+      e horário que o cliente escolher.
+
+      Carla (Cozinha): Perfeito. A gente pode receber uma lista dos pedidos confirmados por 
+      dia. Aí consigo dar o ok se os ingredientes estão disponíveis. Mas precisa ficar claro 
+      que, se tiver alguma restrição alimentar, isso tem que chegar pra gente certinho.
+
+      Ana: Boa, então a confirmação do pedido só vai pra frente se estiver tudo certo com 
+      ingredientes e capacidade de produção. E Lucas, você integra isso ao pagamento, certo?
+
+      Lucas (TI): Isso, vou integrar com a plataforma de pagamento. Se o pagamento for 
+      confirmado, o cliente recebe uma notificação automática com todos os detalhes do pedido 
+      e da entrega.
+
+      João (Logística): E se tiver algum problema, tipo falta de ingrediente ou pagamento 
+      pendente, a gente avisa o cliente pra ajustar?
+
+      Ana: Exato, vamos precisar fazer isso de forma manual, pelo menos no começo.
+
+      Ana: Agora, a fabricação das marmitas. Carla, como vocês preferem organizar isso?
+
+      Carla (Cozinha): A gente vai precisar que o sistema nos envie a lista de produção 
+      por dia. Assim, eu organizo a cozinha conforme os pedidos que entraram. A gente precisa 
+      checar a qualidade dos ingredientes antes de começar e embalar as marmitas com segurança. 
+      Depois, a etiquetagem tem que ser bem feita, com o nome do cliente, o tipo da marmita e 
+      a data de preparo.
+
+      Lucas (TI): Posso automatizar a geração da lista de produção e já deixar as marmitas 
+      prontas registradas no sistema, assim, quando vocês terminarem, já fica disponível pro 
+      pessoal da entrega.
+
+      Carla (Cozinha): Isso ajuda muito. E, se precisar de algum ajuste nas marmitas, eu consigo
+      notificar direto pelo sistema?
+
+      Lucas (TI): Sim, Carla, vou deixar um espaço pra vocês anotarem se tiver algum problema ou 
+      ajuste que precisa ser feito antes de liberar pra entrega.
+
+      Ana: E pra finalizar, a entrega. João, como vai ser?
+
+      João (Logística): A gente precisa ter acesso à lista de entregas do dia, com os endereços 
+      já organizados. O entregador pega as marmitas, separa por rota e vai fazendo as entregas. 
+      Cada vez que ele concluir uma entrega, ele registra no sistema a hora e, se precisar, pega 
+      uma assinatura do cliente ou tira uma foto como confirmação.
+
+      Lucas (TI): A gente consegue automatizar a criação das rotas. Assim, os endereços dos 
+      clientes já saem em uma sequência otimizada. E também posso configurar pro cliente receber 
+      uma notificação por SMS ou e-mail com o status da entrega, tipo "sua marmita está a caminho" 
+      ou "entregue".
+
+      João (Logística): Show. E se o cliente não estiver em casa ou o endereço estiver errado?
+
+      Ana: Se der algum problema, vocês avisam a equipe de atendimento. Aí, eles entram em contato 
+      com o cliente pra reprogramar a entrega ou ajustar o endereço.
+
+      Lucas (TI): Certo, então o status da entrega vai pro sistema como "entregue", "tentativa de 
+      entrega" ou "não entregue", pra gente poder acompanhar.
+
+      Ana: Exato, pessoal. A gente precisa que tudo funcione bem pra dar uma experiência positiva 
+      pro cliente e melhorar nosso fluxo interno.
+  - titulo: Processo de Onboarding de Clientes em uma Empresa de Serviços Financeiros
+    texto: |
+      Olha, vou te contar como funciona o nosso processo de onboarding 
+      de clientes, é praticamente a nossa porta de entrada para todos 
+      os novos clientes que chegam. É um processo bem estruturado, mas 
+      fizemos de um jeito que ele fosse simples e rápido, tanto para a 
+      gente quanto para o cliente. Eu vou te explicar como ele acontece, 
+      passo a passo, como se eu estivesse te mostrando ao vivo. Vamos lá?
+
+      Tudo começa quando o cliente chega no nosso portal, sabe? Ele preenche 
+      um formulário online com aquelas informações básicas: nome, CPF, 
+      endereço, e-mail, telefone. É como se ele estivesse batendo na nossa 
+      porta pela primeira vez. Assim que ele manda essas informações, nosso 
+      sistema já dá aquela conferida inicial no CPF. Usamos uma integração 
+      com a Receita Federal, porque a gente precisa ter certeza de que o CPF 
+      está ativo e não está em nenhuma lista de restrição. Se tudo estiver 
+      certo, o sistema manda um e-mail de confirmação para o cliente. Agora, 
+      se tiver algo errado, tipo um número digitado errado ou CPF inválido, 
+      a gente já avisa o cliente por e-mail, explicando que ele precisa corrigir 
+      antes de continuar. A gente não perde tempo, e nem ele.
+
+      Passada essa etapa, se o CPF estiver certinho, a gente vai para a Análise 
+      de Documentos. Essa parte é um pouco mais detalhada. O cliente envia as 
+      cópias dos documentos de identidade e do comprovante de residência, tudo 
+      pelo portal mesmo. Aí entra o nosso time de compliance. Eles olham cada 
+      documento, conferem a legibilidade, e também usamos uma ferramenta de OCR, 
+      que é tipo uma leitura automática dos dados dos documentos. Isso ajuda a 
+      agilizar a extração das informações e a checar se tudo bate com o que o 
+      cliente colocou lá no começo. Aqui, a gente tem uma integração com uma 
+      empresa que verifica a autenticidade dos documentos. Se o documento está 
+      certo, a gente avisa o cliente que está tudo ok e passamos para a próxima 
+      etapa. Mas, se algo não estiver legível ou se tiver alguma inconsistência, 
+      a gente pede para o cliente reenviar o documento certo.
+
+      Depois dessa revisão dos documentos, a gente vai para a parte de Análise de 
+      Crédito. Aqui, o sistema já coleta automaticamente as informações de score de 
+      crédito do cliente, consultando os bureaus de crédito, tipo Serasa e Boa Vista. 
+      É como se fosse uma checagem dos antecedentes financeiros do cliente, sabe? 
+      Eu sempre digo que é a etapa que avalia o quão confiável financeiramente é o 
+      cliente. Se a análise mostra que ele está dentro dos nossos parâmetros, a gente 
+      segue adiante. Mas, se o score não estiver dentro do mínimo necessário, ou se 
+      tiver um histórico de inadimplência, a gente manda um e-mail explicando a 
+      situação para o cliente, e ele tem a chance de contestar a análise, caso tenha 
+      informações adicionais para nos passar. Sempre queremos ser justos, então damos 
+      essa oportunidade.
+
+      Agora, se a análise de crédito está de acordo, a gente vai para a Criação da 
+      Conta. Aqui, o sistema já faz tudo de forma automática: ele cria a conta do 
+      cliente na nossa plataforma bancária, e o cliente recebe um e-mail de boas-vindas, 
+      todo bonitinho, explicando como acessar e usar a conta dele. É como entregar a 
+      chave da casa nova para ele. A gente só passa para a próxima etapa se estiver tudo 
+      funcionando direitinho. Se por algum motivo o sistema não conseguir criar a conta, 
+      tipo um erro nos dados, o caso volta para revisão manual, onde um analista verifica 
+      o que deu errado.
+
+      E aí, para fechar, temos a parte de Onboarding Digital, que é quando o cliente já tem 
+      a conta dele e começa a explorar a nossa plataforma. A gente faz questão de oferecer 
+      um tutorial online para ele, explicando todos os principais serviços e funcionalidades 
+      que ele pode usar. E, para garantir que ele não tenha nenhuma dúvida, a gente coloca 
+      um agente de relacionamento à disposição dele, via chat, para tirar qualquer dúvida 
+      inicial. É a nossa forma de dizer: 'Estamos aqui para o que você precisar'. A 
+      gente monitora se o cliente está acessando o tutorial, se ele está entendendo 
+      tudo, e até pedimos um feedback dele sobre essa experiência. Se ele interagir 
+      direitinho, já damos por encerrado o onboarding e ele começa a usar nossos serviços. 
+      Mas, se a gente vê que ele não está interagindo muito, a gente envia um e-mail, 
+      faz um follow-up para saber se está tudo bem, e, se precisar, um agente entra em 
+      contato para entender se tem algum problema.
+
+      No fim das contas, nosso processo é como uma conversa que vai se ajustando conforme 
+      a necessidade do cliente. Queremos que ele se sinta bem-vindo e que tudo fique claro 
+      desde o início, para que, quando ele começar a usar nossos serviços, já esteja seguro 
+      e confiante. É isso que faz a diferença para a gente.
