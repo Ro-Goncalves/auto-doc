@@ -3,12 +3,10 @@ import yaml
 from datetime import datetime
 from equipe.auto_doc_execucao import AutoDocController as EquipeController
 
-# Configuração da Página Principal
-st.set_page_config(layout="wide", page_title="Nome Projeto", page_icon="🎬")
-st.title("🎥 Nome Projeto")
+st.set_page_config(layout="wide", page_title="Auto Doc", page_icon="🤖")
+st.title("🤖📄✨ Auto Doc")
 
 
-# Iniciando Variáveis de sessão
 def status_inicial():
     if 'texto_base' not in st.session_state:
         st.session_state.texto_base = ""  
@@ -31,8 +29,7 @@ def analisar_texto(texto):
         "num_palavras": len(palavras),
         "tempo_leitura": len(palavras) // 200  # Assumindo uma velocidade média de leitura de 200 palavras por minuto
     }
-    
-# Dessa forma evitamos o erro WARNING: Overriding of current TracerProvider is not allowed    
+
 @st.cache_resource
 def criar_equipe():
     return EquipeController()
@@ -47,15 +44,12 @@ def carregando_exemplo():
 
 st.session_state.exemplos = carregando_exemplo()
 
-def main():
-    # Sidebar       
-    st.sidebar.info("Breve Descrição da equipe.") 
-   
-    # Condiguração Roteirizador
+def main():     
+    st.sidebar.info("Auto Doc: Automatize sua documentação e ganhe tempo para o que realmente importa! 🚀📄")    
+    
     if st.session_state.mostrar_inputs:
-        st.subheader("Entradas da Equipe")
-        
-        # Add a selectbox for choosing predefined examples
+        st.subheader("Entradas da Equipe")        
+       
         example_options = ["Escreva seu próprio Requisito"] + [example['titulo'] for example in st.session_state.exemplos['exemplos']]
         selected_example = st.selectbox("Escolha um exemplo ou escreva seu próprio texto", options=example_options)
         
@@ -68,7 +62,6 @@ def main():
         analise_base = analisar_texto(st.session_state.texto_base)
         st.write(f"Caracteres: {len(st.session_state.texto_base)} | Palavras: {analise_base['num_palavras']}")
 
-        # Process button
         if st.button("Trabalhar", type="primary"):
             with st.spinner("Processando..."):
                 crew_result = st.session_state.equipe.run({
@@ -91,11 +84,9 @@ def main():
             st.session_state.mostrar_inputs = True
             st.rerun()
 
-    if not st.session_state.mostrar_inputs and st.session_state.saida_tarefas:
-        # Resultados Equipe
-        st.subheader("Resultados das Tarefas")
-        
-        # Criar tabs para cada tarefa
+    if not st.session_state.mostrar_inputs and st.session_state.saida_tarefas:       
+        st.subheader("Resultados das Tarefas")        
+       
         task_agent = [task.agent for task in st.session_state.saida_tarefas]
         tabs = st.tabs(task_agent)
         
@@ -112,7 +103,6 @@ def main():
         analise_roteiro = analisar_texto(st.session_state.texto_processado)
         st.write(f"Caracteres: {len(texto_processado)} | Palavras: {analise_roteiro['num_palavras']} | Tempo estimado de leitura: {analise_roteiro['tempo_leitura']} minutos")
 
-        # Download button
         if st.session_state.texto_processado:
             st.download_button(
                 label="Baixar Resultado",
@@ -122,5 +112,16 @@ def main():
                 mime="text/plain"
             ) 
 
+auto_doc_page = st.Page(main, title="Central de Comando 🚀", icon=":material/memory:", default=True)
+
+exemplo_resultado_page = st.Page("paginas/exemplo_resultado.py", title="Dossiê de Conquistas 📑💥", icon=":material/text_snippet:")
+sobre_equipe_page = st.Page("paginas/sobre_equipe.py", title="Liga dos Documentadores 🦸‍♂️📜", icon=":material/domino_mask:")
+
+pg = st.navigation({
+    "Auto Doc": [auto_doc_page],
+    "Sobre": [exemplo_resultado_page, sobre_equipe_page],
+})
+
+
 if __name__ == "__main__":
-    main()
+    pg.run()

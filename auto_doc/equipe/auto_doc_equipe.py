@@ -34,8 +34,7 @@ class EquipeAutoDoc():
             max_rpm=30,
             memory=True,
             allow_delegation=False,
-            verbose=True,   
-            tools=[self.summarization_tool]      
+            verbose=True, 
         )
         
     @agent
@@ -47,7 +46,6 @@ class EquipeAutoDoc():
             memory=True,
             allow_delegation=False,
             verbose=True,
-            tools=[self.expansion_tool]
         ) 
         
     @agent
@@ -58,8 +56,7 @@ class EquipeAutoDoc():
             max_rpm=30,
             memory=True,
             allow_delegation=False,
-            verbose=True,
-            tools=[self.summarization_tool, self.expansion_tool]
+            verbose=True,          
         ) 
     
     @task
@@ -67,6 +64,7 @@ class EquipeAutoDoc():
         return Task(
             config=self.tasks_config['mapear_processo'],
             agent=self.analista_processos(),
+            #output_pydantic=TemplateProcesso
         ) 
         
     @task
@@ -74,6 +72,7 @@ class EquipeAutoDoc():
         return Task(
             config=self.tasks_config['documentar_processo'],
             agent=self.especialista_documentacao(),
+            output_pydantic=TemplateProcesso
         )
         
     @task
@@ -81,6 +80,7 @@ class EquipeAutoDoc():
         return Task(
             config=self.tasks_config['auditar_documentacao'],
             agent=self.auditor_documentacao(),
+            output_pydantic=TemplateProcesso
         )
 
     @crew
