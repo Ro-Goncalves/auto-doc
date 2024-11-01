@@ -72,7 +72,7 @@ class EquipeAutoDoc():
         return Task(
             config=self.tasks_config['documentar_processo'],
             agent=self.especialista_documentacao(),
-            output_pydantic=TemplateProcesso
+            #output_pydantic=TemplateProcesso
         )
         
     @task
@@ -80,7 +80,7 @@ class EquipeAutoDoc():
         return Task(
             config=self.tasks_config['auditar_documentacao'],
             agent=self.auditor_documentacao(),
-            output_pydantic=TemplateProcesso
+            #output_pydantic=TemplateProcesso
         )
 
     @crew
@@ -93,7 +93,7 @@ class EquipeAutoDoc():
             verbose=True,            
             memory=True,
             embedder=embedding_functions.GoogleGenerativeAiEmbeddingFunction(
-                api_key=os.getenv("GEMINI_API_KEY"),
+                api_key=os.getenv("GOOGLE_API_KEY"),
                 model_name="models/text-embedding-004"
             )
         )

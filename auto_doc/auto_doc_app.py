@@ -45,10 +45,9 @@ def carregando_exemplo():
 st.session_state.exemplos = carregando_exemplo()
 
 def main():     
-    st.sidebar.info("Auto Doc: Automatize sua documentação e ganhe tempo para o que realmente importa! 🚀📄")    
+    st.info("Auto Doc: Automatize sua documentação e ganhe tempo para o que realmente importa! ⏳📄")    
     
     if st.session_state.mostrar_inputs:
-        st.subheader("Entradas da Equipe")        
        
         example_options = ["Escreva seu próprio Requisito"] + [example['titulo'] for example in st.session_state.exemplos['exemplos']]
         selected_example = st.selectbox("Escolha um exemplo ou escreva seu próprio texto", options=example_options)
@@ -99,7 +98,9 @@ def main():
         st.divider()
         
         st.subheader("Resuldado Final")
-        texto_processado = st.text_area("Resultado gerado", value=st.session_state.texto_processado, height=300, key="output_text")
+        texto_processado = st.session_state.texto_processado
+
+        st.markdown(texto_processado)
         analise_roteiro = analisar_texto(st.session_state.texto_processado)
         st.write(f"Caracteres: {len(texto_processado)} | Palavras: {analise_roteiro['num_palavras']} | Tempo estimado de leitura: {analise_roteiro['tempo_leitura']} minutos")
 
@@ -108,11 +109,11 @@ def main():
                 label="Baixar Resultado",
                 icon="🪄",
                 data=st.session_state.texto_processado,
-                file_name=f"roteiro_gerado_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
+                file_name=f"roteiro_gerado_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md",
                 mime="text/plain"
             ) 
 
-auto_doc_page = st.Page(main, title="Central de Comando 🚀", icon=":material/memory:", default=True)
+auto_doc_page = st.Page(main, title="Central de Comando ⚙️", icon=":material/memory:", default=True)
 
 exemplo_resultado_page = st.Page("paginas/exemplo_resultado.py", title="Dossiê de Conquistas 📑💥", icon=":material/text_snippet:")
 sobre_equipe_page = st.Page("paginas/sobre_equipe.py", title="Liga dos Documentadores 🦸‍♂️📜", icon=":material/domino_mask:")

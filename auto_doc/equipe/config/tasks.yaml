@@ -1,9 +1,5 @@
 mapear_processo:
   description: >
-    <requisitos>
-    {requisitos}
-    </requisitos>
-
     Revisar os <requisitos> levantados e extrair as informações essenciais 
     sobre os processos de negócios. Isso inclui:
 
@@ -17,6 +13,10 @@ mapear_processo:
     de maneira clara e lógica.
     - Use a ferramenta de sumarização para organizar esses pontos em uma visão
     concisa e estruturada para a documentação. 
+
+    <requisitos>
+    {requisitos}
+    </requisitos>
   expected_output: >
     O resultado esperado da tarefa é um documento estruturado contendo:
     
@@ -27,6 +27,25 @@ mapear_processo:
 
 documentar_processo:
   description: >
+    Elaborar a documentação não técnica com base nas informações estruturadas 
+    fornecidas pelo Agente Analista de Processos. Isso inclui:
+
+    - Estruturar a documentação de acordo com o <template_padrao> pré-definido, 
+    garantindo consistência e facilidade de leitura.
+    - Usar uma linguagem simples e acessível, evitando jargões técnicos que possam 
+    confundir os leitores. Se jargões forem necessários, incluí-los no Glossário 
+    para maior clareza.
+    - Incluir seções que expliquem detalhadamente o propósito do processo, 
+    as atividades envolvidas, as integrações tecnológicas e as responsabilidades de 
+    cada stakeholder.
+    - Incorporar exemplos práticos e cenários de aplicação, sempre que possível, 
+    para ilustrar os processos e facilitar a compreensão do time de negócios.
+    - Garantir que a mantenha um alto padrão de qualidade e profissionalismo.
+    - Usar elementos visuais, como tabelas, gráficos de fluxo e diagramas BPMN, 
+    para representar as atividades e integrações de forma clara.  
+    - Expanda as seções conforme necessário usando a ferramenta de expansão para 
+    garantir detalhamento.
+
     <template_padrao>    
       # Nome do Processo
       Apresentação geral do processo, explicando seu objetivo e contexto dentro 
@@ -59,26 +78,7 @@ documentar_processo:
 
       ## Glossário
       Lista de termos técnicos e seus significados, para garantir que todos os 
-    </template_padrao>   
-
-    Elaborar a documentação não técnica com base nas informações estruturadas 
-    fornecidas pelo Agente Analista de Processos. Isso inclui:
-
-    - Estruturar a documentação de acordo com o <template_padrao> pré-definido, 
-    garantindo consistência e facilidade de leitura.
-    - Usar uma linguagem simples e acessível, evitando jargões técnicos que possam 
-    confundir os leitores. Se jargões forem necessários, incluí-los no Glossário 
-    para maior clareza.
-    - Incluir seções que expliquem detalhadamente o propósito do processo, 
-    as atividades envolvidas, as integrações tecnológicas e as responsabilidades de 
-    cada stakeholder.
-    - Incorporar exemplos práticos e cenários de aplicação, sempre que possível, 
-    para ilustrar os processos e facilitar a compreensão do time de negócios.
-    - Garantir que a mantenha um alto padrão de qualidade e profissionalismo.
-    - Usar elementos visuais, como tabelas, gráficos de fluxo e diagramas BPMN, 
-    para representar as atividades e integrações de forma clara.  
-    - Expanda as seções conforme necessário usando a ferramenta de expansão para 
-    garantir detalhamento.    
+    </template_padrao>
 
   expected_output: >
     Documentação não técnica que contenha:
@@ -92,6 +92,20 @@ documentar_processo:
     
 auditar_documentacao:
   description: >
+    Revise toda a documentação não técnica produzida pelo Agente Especialista em Documentação. 
+    Isso inclui:
+
+    - Verificar a conformidade com o <template_padrao> padrão e os requisitos estabelecidos.
+    - Avaliar a clareza e a acessibilidade da linguagem utilizada, garantindo que 
+    não haja jargões ou termos técnicos desnecessários.
+    - Realizar uma revisão minuciosa em busca de erros gramaticais, ortográficos e de 
+    formatação.   
+    - Assegurar que a documentação final seja coerente e que os processos sejam 
+    descritos de forma lógica e sequencial.
+    - Garanta que a documentação não fuja dos <requisitos>.
+    - Use as ferramentas de resumo para identificar melhorias e de expansão para adicionar 
+    detalhes essenciais.
+
     <template_padrao>
       # Nome do Processo
       Apresentação geral do processo, explicando seu objetivo e contexto dentro 
@@ -129,20 +143,6 @@ auditar_documentacao:
     <requisitos>
     {requisitos}
     </requisitos>
-
-    Revise toda a documentação não técnica produzida pelo Agente Especialista em Documentação. 
-    Isso inclui:
-
-    - Verificar a conformidade com o <template_padrao> padrão e os requisitos estabelecidos.
-    - Avaliar a clareza e a acessibilidade da linguagem utilizada, garantindo que 
-    não haja jargões ou termos técnicos desnecessários.
-    - Realizar uma revisão minuciosa em busca de erros gramaticais, ortográficos e de 
-    formatação.   
-    - Assegurar que a documentação final seja coerente e que os processos sejam 
-    descritos de forma lógica e sequencial.
-    - Garanta que a documentação não fuja dos <requisitos>.
-    - Use as ferramentas de resumo para identificar melhorias e de expansão para adicionar 
-    detalhes essenciais.
 
   expected_output: >
     Relatório de revisão que contenha:
