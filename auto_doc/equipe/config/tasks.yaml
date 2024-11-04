@@ -79,7 +79,6 @@ documentar_processo:
       ## Glossário
       Lista de termos técnicos e seus significados, para garantir que todos os 
     </template_padrao>
-
   expected_output: >
     Documentação não técnica que contenha:
    
@@ -143,7 +142,6 @@ auditar_documentacao:
     <requisitos>
     {requisitos}
     </requisitos>
-
   expected_output: >
     Relatório de revisão que contenha:
     - **A documentação final revisada, aprovada e pronta para ser entregue ao time 
@@ -163,7 +161,6 @@ coordenar_comunicacao:
     compartilhar ideias e preocupações.
     - Acompanhar o progresso das tarefas e oferecer suporte sempre que necessário, 
     garantindo que as metas do projeto sejam atingidas.
-
   expected_output: >
     O resultado esperado da tarefa é:
 
@@ -173,3 +170,46 @@ coordenar_comunicacao:
     e áreas que precisam de atenção.
     - Um ambiente de trabalho positivo e colaborativo, onde os agentes se sintam 
     motivados e engajados.
+
+identificar_atividades:
+  description: > 
+    Revisar os <requisitos> levantados e mapear todas as atividades do processo de 
+    negócios. As responsabilidades incluem:
+
+    - Identificar e descrever cada atividade.
+    - Atribuir um setor responsável para cada uma.
+    - Definir o roteamento de cada atividade, indicando os próximos passos baseados em 
+    aprovações ou rejeições.
+    - Organizar essas informações de maneira clara para o próximo agente.
+    
+    <requisitos> {requisitos} </requisitos>
+  expected_output: > 
+    Uma lista estruturada com atividades, setor responsável e roteamento, prontos para o 
+    próximo agente usar na criação do diagrama.
+
+diagramar_processo:
+  description: > 
+    Com base nas atividades e setores identificados, criar um diagrama do processo no 
+    Mermind. Responsabilidades incluem:
+
+    - Representar cada setor em uma poll exclusiva.
+    - Distribuir as atividades conforme os departamentos responsáveis.
+    - Assegurar clareza e visualização lógica do fluxo entre as atividades.
+  expected_output: > 
+    Um script do diagrama de processos organizado em Mermind para ser usado em um arquivo MARKDOWN, 
+    que representa cada atividade e setor, preparado para revisão.
+
+avaliar_conformidade:
+  description: > 
+    Revisar o diagrama de processos criado, assegurando que esteja de acordo com os requisitos e 
+    com o mapeamento das atividades e setores. Responsabilidades incluem:
+
+    - Verificar a precisão das atividades e setores representados.
+    - Avaliar o fluxo e roteamento para garantir conformidade com os requisitos.
+    - Fornecer feedback ou correções para otimizar o diagrama final.
+    
+    <requisitos> {requisitos} </requisitos>
+  expected_output: >
+    Um script do diagrama de processos revisado em Mermindpara ser usado em um arquivo MARKDOWN,
+    Um relatório de conformidade com sugestões de ajustes, se necessário, e a validação final 
+    do diagrama.

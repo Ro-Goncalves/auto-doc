@@ -2,34 +2,13 @@ from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 import chromadb.utils.embedding_functions as embedding_functions
 import os
-
-from pydantic import BaseModel
-from typing import List, Optional
-
-class Atividade(BaseModel):
-    nome: str
-    descricao: str
-    validacoes: Optional[List[str]]
-    fluxo: str
-
-class Integracao(BaseModel):
-    nome: str
-    descricao: str
-
-class TemplateProcesso(BaseModel):
-    nome_processo: str
-    apresentacao: str
-    stakeholders: List[str]
-    atividades: List[Atividade]
-    integracoes: List[Integracao]
-    glossario: Optional[dict]
     
 @CrewBase
-class EquipeAutoDoc():
+class EquipeDiagramadores():
     @agent
-    def analista_processos(self) -> Agent:            
+    def identificador_atividades(self) -> Agent:            
         return Agent(
-            config=self.agents_config['analista_processos'],
+            config=self.agents_config['identificador_atividades'],
             llm=LLM(model="gemini/gemini-1.5-flash", temperature=0.25),
             max_rpm=30,
             memory=True,
@@ -38,9 +17,9 @@ class EquipeAutoDoc():
         )
         
     @agent
-    def especialista_documentacao(self) -> Agent:             
+    def diagramador_processos(self) -> Agent:             
         return Agent(
-            config=self.agents_config['especialista_documentacao'],
+            config=self.agents_config['diagramador_processos'],
             llm=LLM(model="gemini/gemini-1.5-flash", temperature=0.50),
             max_rpm=30,
             memory=True,
@@ -49,9 +28,9 @@ class EquipeAutoDoc():
         ) 
         
     @agent
-    def auditor_documentacao(self) -> Agent:             
+    def avaliador_conformidade(self) -> Agent:             
         return Agent(
-            config=self.agents_config['auditor_documentacao'],
+            config=self.agents_config['avaliador_conformidade'],
             llm=LLM(model="gemini/gemini-1.5-flash", temperature=0.75),
             max_rpm=30,
             memory=True,
@@ -60,27 +39,24 @@ class EquipeAutoDoc():
         ) 
     
     @task
-    def mapear_processo(self) -> Task:       
+    def identificar_atividades(self) -> Task:       
         return Task(
-            config=self.tasks_config['mapear_processo'],
-            agent=self.analista_processos(),
-            #output_pydantic=TemplateProcesso
+            config=self.tasks_config['identificar_atividades'],
+            agent=self.identificador_atividades(),            
         ) 
         
     @task
-    def documentar_processo(self) -> Task: 
+    def diagramar_processo(self) -> Task: 
         return Task(
-            config=self.tasks_config['documentar_processo'],
-            agent=self.especialista_documentacao(),
-            #output_pydantic=TemplateProcesso
+            config=self.tasks_config['diagramar_processo'],
+            agent=self.diagramador_processos(),            
         )
         
     @task
-    def auditar_documentacao(self) -> Task: 
+    def avaliar_conformidade(self) -> Task: 
         return Task(
-            config=self.tasks_config['auditar_documentacao'],
-            agent=self.auditor_documentacao(),
-            #output_pydantic=TemplateProcesso
+            config=self.tasks_config['avaliar_conformidade'],
+            agent=self.avaliador_conformidade(),            
         )
 
     @crew

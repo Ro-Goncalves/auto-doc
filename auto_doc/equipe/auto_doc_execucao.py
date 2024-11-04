@@ -1,27 +1,22 @@
-from equipe.auto_doc_equipe import EquipeAutoDoc
+from equipe.diagramadores_equipe import EquipeDiagramadores
+from equipe.documentadores_equipe import EquipeDocumentadores
 
 from typing import  Dict
 
 class AutoDocController:
     def __init__(self):       
         
-        self.crew = EquipeAutoDoc().crew()
+        self.documentadores = EquipeDocumentadores().crew()
+        self.diagramadores = EquipeDiagramadores().crew()
 
-    def run(self, inputs: Dict[str, str]):
-        """
-        Run the crew.
-        """        
-        crew_result = self.crew.kickoff(inputs=inputs)
+    def run_documentadores(self, inputs: Dict[str, str]):               
+        crew_result = self.documentadores.kickoff(inputs=inputs)
         
         return crew_result
 
-    def train(self, n_iterations: int, filename: str, inputs: Dict[str, str]):
-        """
-        Train the crew for a given number of iterations.
-        """
-        try:
-            self.crew.train(n_iterations=n_iterations, filename=filename, inputs=inputs)
-        except Exception as e:
-            raise Exception(f"An error occurred while training the crew: {e}")
+    def run_diagramadores(self, inputs: Dict[str, str]):               
+        crew_result = self.diagramadores.kickoff(inputs=inputs)
+        
+        return crew_result
 
     
