@@ -1,7 +1,29 @@
 import streamlit as st
 from datetime import datetime
+import streamlit_mermaid as stmd
+import re
     
-st.info("Diagramadores: ")    
+st.info("Diagramadores: ")   
+
+def render_text_with_mermaid(text):
+    # Definir o padrão para encontrar o bloco `mermaid`
+    pattern = re.compile(r'```mermaid(.*?)```', re.DOTALL)
+
+    # Encontrar as partes antes, entre e depois da tag `mermaid`
+    parts = pattern.split(text)
+    
+    # Parte antes da tag `mermaid`
+    if parts[0].strip():
+        st.markdown(parts[0])
+    
+    # Parte entre as tags `mermaid`, se existir
+    if len(parts) > 1:
+        st_mermaid_code = parts[1].strip()
+        stmd.st_mermaid(st_mermaid_code)
+    
+    # Parte depois da tag `mermaid`, se existir
+    if len(parts) > 2 and parts[2].strip():
+        st.markdown(parts[2])
 
 if st.session_state.mostrar_inputs:
     
@@ -51,9 +73,8 @@ if not st.session_state.mostrar_inputs and st.session_state.saida_tarefas:
     st.divider()
     
     st.subheader("Resuldado Final")
-    texto_processado = st.session_state.texto_processado
-
-    st.markdown(texto_processado)
+    #texto_processado = st.session_state.texto_processado
+    render_text_with_mermaid(st.session_state.texto_processado)
     
     if st.session_state.texto_processado:
         st.download_button(

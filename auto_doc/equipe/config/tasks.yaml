@@ -180,7 +180,33 @@ identificar_atividades:
     - Atribuir um setor responsável para cada uma.
     - Definir o roteamento de cada atividade, indicando os próximos passos baseados em 
     aprovações ou rejeições.
-    - Organizar essas informações de maneira clara para o próximo agente.
+    - Organizar essas informações de maneira clara para o próximo agente.    
+
+    ###EXEMPLO###
+
+    ###ATIVIDADE###
+    Fabricação da Marmita
+
+      - **Descrição**: Nesta atividade, a Cozinha prepara as marmitas de acordo com o pedido do cliente, garantindo a qualidade dos ingredientes e a segurança alimentar.
+      - **Validações**:
+          - **Conferência das marmitas**: a Cozinha confere se todas as marmitas estão de acordo com o pedido do cliente (tipo, tamanho, restrições alimentares).
+          - **Etiquetagem das marmitas**: as marmitas são etiquetadas com o nome do cliente, tipo e data de preparo.
+      - **Fluxo**:
+          1. A Cozinha consulta os pedidos confirmados no sistema.
+          2. A Cozinha prepara as marmitas conforme o pedido do cliente.
+          3. A Cozinha confere a qualidade dos ingredientes e a segurança alimentar.
+          4. A Cozinha embala as marmitas de forma segura.
+          5. **A Cozinha confere se todas as marmitas estão de acordo com o pedido do cliente.**
+          6. **A Cozinha etiqueta as marmitas.**
+          7. **O sistema registra as marmitas prontas para a etapa de entrega.**
+          8. **As marmitas prontas são encaminhadas para a Logística.**
+          9. **Se houver algum ajuste necessário, a Cozinha é notificada.**
+
+      ###RETORNO###
+      Atividade: Fabricação da Marmita
+      Setor Responsável: Cozinha
+      Roteamento Aprovação: Segue para Logística
+      Roteamento Reprovação: Não existe
     
     <requisitos> {requisitos} </requisitos>
   expected_output: > 
@@ -195,6 +221,14 @@ diagramar_processo:
     - Representar cada setor em uma poll exclusiva.
     - Distribuir as atividades conforme os departamentos responsáveis.
     - Assegurar clareza e visualização lógica do fluxo entre as atividades.
+    - Não utilize "()" na discrição das texto dos objetos.
+    - utilize TD como orintação padrão.
+    - Inclua as seguintes configurações:
+      "---
+      config:
+      look: handDrawn
+      title: [Nome do Processo]
+      ---""
   expected_output: > 
     Um script do diagrama de processos organizado em Mermind para ser usado em um arquivo MARKDOWN, 
     que representa cada atividade e setor, preparado para revisão.

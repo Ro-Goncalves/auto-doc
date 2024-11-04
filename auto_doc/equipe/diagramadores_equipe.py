@@ -9,7 +9,7 @@ class EquipeDiagramadores():
     def identificador_atividades(self) -> Agent:            
         return Agent(
             config=self.agents_config['identificador_atividades'],
-            llm=LLM(model="gemini/gemini-1.5-flash", temperature=0.25),
+            llm=LLM(model="gemini/gemini-1.5-flash", temperature=0.50),
             max_rpm=30,
             memory=True,
             allow_delegation=False,
@@ -20,8 +20,8 @@ class EquipeDiagramadores():
     def diagramador_processos(self) -> Agent:             
         return Agent(
             config=self.agents_config['diagramador_processos'],
-            llm=LLM(model="gemini/gemini-1.5-flash", temperature=0.50),
-            max_rpm=30,
+            llm=LLM(model="gemini/gemini-1.5-pro", temperature=0.25),
+            max_rpm=2,
             memory=True,
             allow_delegation=False,
             verbose=True,
@@ -31,8 +31,8 @@ class EquipeDiagramadores():
     def avaliador_conformidade(self) -> Agent:             
         return Agent(
             config=self.agents_config['avaliador_conformidade'],
-            llm=LLM(model="gemini/gemini-1.5-flash", temperature=0.75),
-            max_rpm=30,
+            llm=LLM(model="gemini/gemini-1.5-pro", temperature=0.25),
+            max_rpm=2,
             memory=True,
             allow_delegation=False,
             verbose=True,          
