@@ -221,14 +221,15 @@ diagramar_processo:
     - Representar cada setor em uma poll exclusiva.
     - Distribuir as atividades conforme os departamentos responsáveis.
     - Assegurar clareza e visualização lógica do fluxo entre as atividades.
-    - Não utilize "()" na discrição das texto dos objetos.
-    - utilize TD como orintação padrão.
+    - Utilize **graph TD** como orientação padrão.
+    - Não utilize "()" na discrição das texto dos objetos.    
     - Inclua as seguintes configurações:
       "---
       config:
       look: handDrawn
       title: [Nome do Processo]
       ---""
+   
   expected_output: > 
     Um script do diagrama de processos organizado em Mermind para ser usado em um arquivo MARKDOWN, 
     que representa cada atividade e setor, preparado para revisão.
@@ -241,9 +242,17 @@ avaliar_conformidade:
     - Verificar a precisão das atividades e setores representados.
     - Avaliar o fluxo e roteamento para garantir conformidade com os requisitos.
     - Fornecer feedback ou correções para otimizar o diagrama final.
+    - Utilize **graph TD** como orientação padrão.
+    - Não utilize "()" na discrição das texto dos objetos.    
+    - Inclua as seguintes configurações:
+      "---
+      config:
+      look: handDrawn
+      title: [Nome do Processo]
+      ---""
     
     <requisitos> {requisitos} </requisitos>
   expected_output: >
-    Um script do diagrama de processos revisado em Mermindpara ser usado em um arquivo MARKDOWN,
+    Um script do diagrama de processos revisado em Mermind para ser usado em um arquivo MARKDOWN,
     Um relatório de conformidade com sugestões de ajustes, se necessário, e a validação final 
-    do diagrama.
+    do diagrama. Tudo em PORTUGUÊS BRASILEIRO.

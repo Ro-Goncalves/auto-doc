@@ -19,7 +19,7 @@ def render_text_with_mermaid(text):
     # Parte entre as tags `mermaid`, se existir
     if len(parts) > 1:
         st_mermaid_code = parts[1].strip()
-        stmd.st_mermaid(st_mermaid_code)
+        stmd.st_mermaid(st_mermaid_code, height="600px")
     
     # Parte depois da tag `mermaid`, se existir
     if len(parts) > 2 and parts[2].strip():
