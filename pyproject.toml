@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "auto-doc"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 authors = ["rodrigo.goncalves <ro.go.calves@gmail.com>"]
 readme = "README.md"

@@ -222,13 +222,7 @@ diagramar_processo:
     - Distribuir as atividades conforme os departamentos responsáveis.
     - Assegurar clareza e visualização lógica do fluxo entre as atividades.
     - Utilize **graph TD** como orientação padrão.
-    - Não utilize "()" na discrição das texto dos objetos.    
-    - Inclua as seguintes configurações:
-      "---
-      config:
-      look: handDrawn
-      title: [Nome do Processo]
-      ---""
+    - Não utilize "()" na discrição das texto dos objetos.
    
   expected_output: > 
     Um script do diagrama de processos organizado em Mermind para ser usado em um arquivo MARKDOWN, 
@@ -243,13 +237,7 @@ avaliar_conformidade:
     - Avaliar o fluxo e roteamento para garantir conformidade com os requisitos.
     - Fornecer feedback ou correções para otimizar o diagrama final.
     - Utilize **graph TD** como orientação padrão.
-    - Não utilize "()" na discrição das texto dos objetos.    
-    - Inclua as seguintes configurações:
-      "---
-      config:
-      look: handDrawn
-      title: [Nome do Processo]
-      ---""
+    - Não utilize "()" na discrição das texto dos objetos.
     
     <requisitos> {requisitos} </requisitos>
   expected_output: >

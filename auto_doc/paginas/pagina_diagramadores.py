@@ -3,7 +3,7 @@ from datetime import datetime
 import streamlit_mermaid as stmd
 import re
     
-st.info("Diagramadores: ")   
+st.info("Diagramadores: Conecte os pontos, desenhe o futuro e torne cada processo mais claro do que nunca! 🔗✨")   
 
 def render_text_with_mermaid(text):
     # Definir o padrão para encontrar o bloco `mermaid`
@@ -17,8 +17,8 @@ def render_text_with_mermaid(text):
         st.markdown(parts[0])
     
     # Parte entre as tags `mermaid`, se existir
-    if len(parts) > 1:
-        st_mermaid_code = parts[1].strip()
+    if len(parts) > 1:        
+        st_mermaid_code = parts[1].strip()       
         stmd.st_mermaid(st_mermaid_code, height="600px")
     
     # Parte depois da tag `mermaid`, se existir
@@ -27,14 +27,14 @@ def render_text_with_mermaid(text):
 
 if st.session_state.mostrar_inputs:
     
-    example_options = ["Escreva seu próprio Requisito"] + [example['titulo'] for example in st.session_state.exemplos['exemplos']]
+    example_options = ["Escreva seu próprio Processo"] + [example['titulo'] for example in st.session_state.exemplos['exemplos']]
     selected_example = st.selectbox("Escolha um exemplo ou escreva seu próprio texto", options=example_options)
     
-    if selected_example == "Escreva seu próprio Requisito":
-        st.session_state.texto_base = st.text_area(label="Digite ou cole seu Requisito aqui", height=200, key="input_text")
+    if selected_example == "Escreva seu próprio Processo":
+        st.session_state.texto_base = st.text_area(label="Digite ou cole seu Processo aqui", height=200, key="input_text")
     else:
         selected_text = next(example['texto'] for example in st.session_state.exemplos['exemplos'] if example['titulo'] == selected_example)
-        st.session_state.texto_base = st.text_area(label="Digite ou cole seu Requisito aqui", value=selected_text, height=200, key="input_text")
+        st.session_state.texto_base = st.text_area(label="Digite ou cole seu Processo aqui", value=selected_text, height=200, key="input_text")
     
     if st.button("Trabalhar", type="primary"):
         with st.spinner("Processando..."):
@@ -72,8 +72,7 @@ if not st.session_state.mostrar_inputs and st.session_state.saida_tarefas:
 
     st.divider()
     
-    st.subheader("Resuldado Final")
-    #texto_processado = st.session_state.texto_processado
+    st.subheader("Resuldado Final")   
     render_text_with_mermaid(st.session_state.texto_processado)
     
     if st.session_state.texto_processado:

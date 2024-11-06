@@ -1,6 +1,6 @@
-#import pysqlite3
-#import sys
-#sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+import pysqlite3
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 import streamlit as st
 import yaml
@@ -48,15 +48,16 @@ def carregando_exemplo():
 
 st.session_state.exemplos = carregando_exemplo()
 
-pagina_documentadores = st.Page("paginas/pagina_documentadores.py", title="Central de Documentação ⚙️", icon=":material/memory:", default=True)
-pagina_diagramadores = st.Page("paginas/pagina_diagramadores.py", title="Central de Diagramação ⚙️", icon=":material/memory:")
+pagina_documentadores = st.Page("paginas/pagina_documentadores.py", title="Central de Documentação ⚙️", default=True)
+pagina_diagramadores = st.Page("paginas/pagina_diagramadores.py", title="QG dos Diagramadores 🗺️")
 
-exemplo_resultado_page = st.Page("paginas/exemplo_resultado.py", title="Dossiê de Conquistas 📑💥", icon=":material/text_snippet:")
-sobre_equipe_page = st.Page("paginas/sobre_equipe.py", title="Liga dos Documentadores 🦸‍♂️📜", icon=":material/domino_mask:")
+exemplo_resultado_page = st.Page("paginas/exemplo_resultado.py", title="Dossiê de Conquistas 💥")
+liga_documentadores = st.Page("paginas/liga_documentadores.py", title="Liga dos Documentadores 📜")
+esquadrao_diagramadores = st.Page("paginas/esquadrao_diagramadores.py", title="Esquadrão dos Diagramadores 📊")
 
 pg = st.navigation({
     "Auto Doc": [pagina_documentadores, pagina_diagramadores],
-    "Sobre": [exemplo_resultado_page, sobre_equipe_page],
+    "Sobre": [exemplo_resultado_page, liga_documentadores, esquadrao_diagramadores],
 })
 
 
