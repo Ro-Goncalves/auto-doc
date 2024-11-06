@@ -1,6 +1,6 @@
-import pysqlite3
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+# import pysqlite3
+# import sys
+# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 import streamlit as st
 import yaml
@@ -23,6 +23,8 @@ def status_inicial():
         st.session_state.historico = []
     if 'exemplos' not in st.session_state:
         st.session_state.exemplos = []
+    if 'exemplos_diagramadores' not in st.session_state:
+        st.session_state.exemplos_diagramadores = []
 
 status_inicial()
 
@@ -42,11 +44,18 @@ st.session_state.equipe = criar_equipe()
 
 @st.cache_data
 def carregando_exemplo():
-    with open('auto_doc/equipe/config/exemplos.yaml', 'r') as file:
+    with open('auto_doc/equipe/config/exemplos.yaml', 'r', encoding='utf-8') as file:
         exemplo = yaml.safe_load(file)
     return exemplo
 
 st.session_state.exemplos = carregando_exemplo()
+
+def carregando_exemplos_diagramadores():
+    with open('auto_doc/equipe/config/exemplos_diagramadores.yaml', 'r', encoding='utf-8') as file:
+        exemplos_diagramadores = yaml.safe_load(file)
+    return exemplos_diagramadores
+
+st.session_state.exemplos_diagramadores = carregando_exemplos_diagramadores()
 
 pagina_documentadores = st.Page("paginas/pagina_documentadores.py", title="Central de Documentação ⚙️", default=True)
 pagina_diagramadores = st.Page("paginas/pagina_diagramadores.py", title="QG dos Diagramadores 🗺️")

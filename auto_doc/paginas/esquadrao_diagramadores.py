@@ -2,6 +2,8 @@ import streamlit as st
 
 st.header("Time de Precisão: Diagramando e Validando Processos com Clareza e Exatidão! 🛠️🔍")
 
+st.divider()
+
 st.subheader("🤖 Identificador de Atividades: O Mestre dos Mapas de Processo!")
 st.markdown("""
     Com experiência afiada em BPM e um instinto nato para organizar, o Identificador de Atividades 
@@ -17,6 +19,8 @@ st.markdown("""
     Tudo pronto para a criação do nosso diagrama! 🚀
 """)
 
+st.divider()
+
 st.subheader("🎨 Diagramador de Processos: O Arquiteto Visual dos Fluxos!")
 st.markdown("""
     Inspirado pelo poder da modelagem visual, o Diagramador de Processos é o artista 🖌️ da equipe Auto Doc, 
@@ -31,6 +35,8 @@ st.markdown("""
     garantir clareza total no fluxo do processo. O resultado? Um diagrama estruturado, que se parece mais com 
     uma obra de arte organizacional! 🖼️🚀
 """)
+
+st.divider()
 
 st.subheader("🧐 Avaliador de Conformidade: O Guardião da Precisão!")
 st.markdown("""

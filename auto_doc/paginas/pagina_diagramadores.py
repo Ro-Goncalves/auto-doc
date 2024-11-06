@@ -5,6 +5,8 @@ import re
     
 st.info("Diagramadores: Conecte os pontos, desenhe o futuro e torne cada processo mais claro do que nunca! 🔗✨")   
 
+st.session_state.mostrar_inputs = True
+
 def render_text_with_mermaid(text):
     # Definir o padrão para encontrar o bloco `mermaid`
     pattern = re.compile(r'```mermaid(.*?)```', re.DOTALL)
@@ -27,13 +29,13 @@ def render_text_with_mermaid(text):
 
 if st.session_state.mostrar_inputs:
     
-    example_options = ["Escreva seu próprio Processo"] + [example['titulo'] for example in st.session_state.exemplos['exemplos']]
+    example_options = ["Escreva seu próprio Processo"] + [example['titulo'] for example in st.session_state.exemplos_diagramadores['exemplos']]
     selected_example = st.selectbox("Escolha um exemplo ou escreva seu próprio texto", options=example_options)
     
     if selected_example == "Escreva seu próprio Processo":
         st.session_state.texto_base = st.text_area(label="Digite ou cole seu Processo aqui", height=200, key="input_text")
     else:
-        selected_text = next(example['texto'] for example in st.session_state.exemplos['exemplos'] if example['titulo'] == selected_example)
+        selected_text = next(example['texto'] for example in st.session_state.exemplos_diagramadores['exemplos'] if example['titulo'] == selected_example)
         st.session_state.texto_base = st.text_area(label="Digite ou cole seu Processo aqui", value=selected_text, height=200, key="input_text")
     
     if st.button("Trabalhar", type="primary"):
