@@ -5,8 +5,6 @@ import re
     
 st.info("Diagramadores: Conecte os pontos, desenhe o futuro e torne cada processo mais claro do que nunca! 🔗✨")   
 
-st.session_state.mostrar_inputs = True
-
 def render_text_with_mermaid(text):
     # Definir o padrão para encontrar o bloco `mermaid`
     pattern = re.compile(r'```mermaid(.*?)```', re.DOTALL)
